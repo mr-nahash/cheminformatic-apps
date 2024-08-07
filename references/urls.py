@@ -1,7 +1,8 @@
 from django.urls import path
-
-from . import views
+from .views import ReferenceListView
 
 urlpatterns = [
-    path("", views.collection_data, name="collection_data"),
+    path('references/', ReferenceListView.as_view(), name='reference-list'),
+
 ]
+
