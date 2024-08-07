@@ -7,9 +7,11 @@
     <h1>Data from MongoDB Collection</h1>
     <ul>
         {% for item in data %}
-            <li>{{ item['title'] }}: {{ item['abstract'] }}</li>
+            <li>{{ item.Title }}: {{ item.Title }}</li>
+            <li>Abstract: {{ item.Abstract }}</li>
+            <li>URL: <a href="{{ item.URL }}">{{ item.URL }}</a></li>
+            <li>Journal: {{ item.Journal }}</li>
         {% endfor %}
     </ul>
 </body>
 </html>
-
