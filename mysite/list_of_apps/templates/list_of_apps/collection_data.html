@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data from MongoDB</title>
+</head>
+<body>
+    <h1>Data from MongoDB Collection</h1>
+    <ul>
+        {% for item in data %}
+            <li>{{ item['title'] }}: {{ item['abstract'] }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+
