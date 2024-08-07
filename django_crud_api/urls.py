@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('collection_data/', include("references.urls")),
+    path('index/', include("references.urls")),
     path("admin/", admin.site.urls),
 
 ]
