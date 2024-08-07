@@ -1,4 +1,7 @@
 from django.shortcuts import render
+
+# Create your views here.
+from django.shortcuts import render
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 
@@ -20,8 +23,8 @@ def collection_data(request):
         
         data = list(collection.find())  # Convert cursor to a list
         
-        return render(request, 'list_of_apps/collection_data.html', {'data': data})
+        return render(request, 'references/collection_data.html', {'data': data})
 
     except Exception as e:
         print(e)
-        return render(request, 'list_of_apps/collection_data.html', {'error': str(e)})
+        return render(request, 'references/collection_data.html', {'error': str(e)})

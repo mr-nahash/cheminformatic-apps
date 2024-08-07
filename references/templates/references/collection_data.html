@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data from MongoDB</title>
+</head>
+<body>
+    <h1>My collection</h1>
+    <ul>
+        {% for item in data %}
+            <li>{{ item.Title }}: {{ item.Title }}</li>
+            <li>Abstract: {{ item.Abstract }}</li>
+            <li>URL: <a href="{{ item.URL }}">{{ item.URL }}</a></li>
+            <li>Journal: {{ item.Journal }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
