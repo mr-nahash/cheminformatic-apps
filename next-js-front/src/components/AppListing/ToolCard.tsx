@@ -10,6 +10,7 @@ const fetchReferences = async (): Promise<Reference[]> => {
   }
 
   const data = await res.json();
+  console.log(data[0])
   return data;
 };
 
