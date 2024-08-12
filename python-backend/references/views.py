@@ -18,6 +18,7 @@ def convert_objectid_to_str(document):
     return document
 
 
+
 class ReferenceListView(APIView):
     def get(self, request):
         db = get_database()  # Connect to the MongoDB database
@@ -26,14 +27,6 @@ class ReferenceListView(APIView):
         references = [convert_objectid_to_str(doc) for doc in references]  # Convert ObjectId to string for each document
         
         return Response(references, status=status.HTTP_200_OK)  # Return the list of documents as a JSON response
-
-class ReferenceListView(APIView):
-    def get(self, request):
-        db = get_database()
-        collection = db['references']
-        references = list(collection.find({}, {"_id": 0}))  # Exclude MongoDB's ObjectId
-        
-        return Response(references, status=status.HTTP_200_OK)
 
     def post(self, request):
         db = get_database()

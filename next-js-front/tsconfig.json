@@ -21,6 +21,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/NavBar.tsx", "components/Footer.jsx", "components/AppListing/CardSSR.tsx", "components/AppListing/ToolCard.jsx", "components/AppListing/ParentComponent"],
   "exclude": ["node_modules"]
 }
