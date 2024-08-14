@@ -1,6 +1,8 @@
-"use client";
+// pages/toolcard.tsx
+'use client'
 import React, { useEffect, useState } from 'react';
 import { Reference } from '@/types';
+import { useLibrary } from '@/context/LibraryContext';
 
 const fetchReferences = async (): Promise<Reference[]> => {
   const res = await fetch('http://127.0.0.1:8000/api/references/');
@@ -10,13 +12,12 @@ const fetchReferences = async (): Promise<Reference[]> => {
   }
 
   const data = await res.json();
-  console.log(data[0])
   return data;
 };
 
 const ToolCard = () => {
+  const { library, toggleSave } = useLibrary();
   const [references, setReferences] = useState<Reference[]>([]);
-  const [savedReferences, setSavedReferences] = useState<Set<string>>(new Set());
 
   useEffect(() => {
     const fetchData = async () => {
@@ -31,20 +32,8 @@ const ToolCard = () => {
     fetchData();
   }, []);
 
-  const toggleSave = (id: string) => {
-    setSavedReferences((prev) => {
-      const newSavedReferences = new Set(prev);
-      if (newSavedReferences.has(id)) {
-        newSavedReferences.delete(id);
-      } else {
-        newSavedReferences.add(id);
-      }
-      return newSavedReferences;
-    });
-  };
-
   return (
-    <div className="flex flex-wrap gap-4">
+    <div className="flex flex-wrap gap-1 justify-center ">
       {references.map((reference: Reference) => (
         <div key={reference._id} className="card bg-base-100 w-96 shadow-xl">
           <div className="card-body">
@@ -55,12 +44,12 @@ const ToolCard = () => {
               <div className="form-control">
                 <label className="cursor-pointer label">
                   <span className="label-text">
-                    {savedReferences.has(reference._id) ? 'Unsave' : 'Save'}
+                    {library.find(item => item._id === reference._id) ? 'Unsave' : 'Save'}
                   </span>
                   <input 
                     type="checkbox" 
-                    checked={savedReferences.has(reference._id)}
-                    onChange={() => toggleSave(reference._id)} 
+                    checked={!!library.find(item => item._id === reference._id)}
+                    onChange={() => toggleSave(reference)} 
                     className="checkbox checkbox-secondary" 
                   />
                 </label>

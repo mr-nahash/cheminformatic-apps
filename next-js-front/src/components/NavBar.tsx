@@ -1,16 +1,20 @@
+import Link from 'next/link';
 import React from 'react';
 
 const Navbar: React.FC = () => {
   return (
       <div className="navbar bg-base-100">
         <div className="flex-1">
-          <a className="btn btn-ghost text-xl">chem connect</a>
+          <Link href='/' className="btn btn-ghost text-xl">chem connect</Link>
         </div>
         <div className="flex-none">
           <ul className="menu menu-horizontal px-1">
             <li><a>About</a></li>
             <li><a>Support Us</a></li>
-            <li><a>Favorites</a></li>
+            <li>
+              <Link href='/myLibrary'> My Saves </Link>
+              
+            </li>
             <div className="dropdown dropdown-end">
               <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                 <div className="w-10 rounded-full">
