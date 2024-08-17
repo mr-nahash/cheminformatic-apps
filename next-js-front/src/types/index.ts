@@ -1,12 +1,12 @@
 export interface Reference {
     _id: string;
-    Title: string;
-    Abstract: string;
-    URL: string;
-    Authors: string[];
-    "Publication Date": string;
-    Journal: string;
-    "Field of Study": string;
-    "URLs in Abstract": string[];
+    title: string;
+    abstract: string;
+    url: string;
+    journal: string[];
+    date: string;
+    authors: string[];
+    doi: string;
+    tool_url: string[];
   }
   

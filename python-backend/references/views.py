@@ -16,7 +16,7 @@ def convert_objectid_to_str(document):
 class ReferenceListView(APIView):
     def get(self, request):
         db = get_database()  # Connect to the MongoDB database
-        collection = db['references']  # Access the 'references' collection
+        collection = db['pubmed_index']  # Access the 'references' collection
         references = list(collection.find())  # Retrieve all documents from the collection and convert the cursor to a list
 
         # Debug: Print each document before conversion
@@ -36,7 +36,7 @@ class ReferenceListView(APIView):
 
     def post(self, request):
         db = get_database()
-        collection = db['references']
+        collection = db['pubmed_index']
         data = request.data
 
         # Debug: Print data before insertion
